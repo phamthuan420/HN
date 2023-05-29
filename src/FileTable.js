@@ -35,21 +35,20 @@ const FileTable = ({ directoryId }) => {
 
   return (
     <div className="container">
-      
+      <h2>List of Files</h2>
       <ul className="list-group">
         {files.map((file) => (
           <li key={file.id} className="list-group-item justify-content-between align-items-center">
-            <div className="list-group-item justify-content-between align-items-center d-flex">
-                 <span>
-                     File ID: {file.id}
-                      <br />
-                      Tên Báo Giá: {file.name}
-                 </span>
-                 <button className="btn btn-primary" onClick={() => handleClick(file.id)}>
-                   Xem chi tiết
-                 </button>
+            <div className="d-flex justify-content-between align-items-center">
+              <span>
+                File ID: {file.id}
+                <br />
+                Tên Báo Giá: {file.name}
+              </span>
+              <button className="btn btn-primary" onClick={() => handleClick(file.id)}>
+                Xem chi tiết
+              </button>
             </div>
-            
             {selectedFileIds.includes(file.id) && <FileStatistics fileId={file.id} />}
           </li>
         ))}
